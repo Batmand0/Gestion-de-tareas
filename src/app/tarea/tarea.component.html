@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<main class="container-fluid tarea-bg">
+  <section class="container">
+    <h2 class="mb-3 text-center display-4">Gestión de Tareas</h2>
+    <section class="row">
+      <div class="col p-3">
+        <div class="input-group mb-3">
+          <input [(ngModel)]="tituloNuevaTarea" type="text" class="form-control" placeholder="Nueva tarea">
+          <button (click) ="agregarTarea()" class="btn btn-primary">Añadir</button>
+        </div>
+      
+        <ul class="list-group">
+          <li *ngFor="let tarea of obtenerTareasFiltradas()" class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <input type="checkbox" [(ngModel)]="tarea.completada">
+              <span class="mx-3">{{ tarea.titulo }}</span>
+            </div>
+            <button (click)="eliminarTarea(tarea.id)" class="btn btn-danger btn-sm">Eliminar</button>
+          </li>
+        </ul>
+      </div>
+      <div class="mb-3 col-3 p-3">
+        <label for="filtro">Filtrar por:</label>
+        <select [(ngModel)]="filtro" id="filtro" class="form-select mt-3">
+          <option value="todas">Todas</option>
+          <option value="completadas">Completadas</option>
+          <option value="pendientes">Pendientes</option>
+        </select>
+      </div>
+    </section>
+  </section>
+</main>
+  

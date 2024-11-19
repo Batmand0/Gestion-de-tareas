@@ -1,0 +1,30 @@
+.header-bg {
+    background-image: url('../images/headerImg.png'); /* Cambia esta ruta por la de tu imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el espacio */
+    background-position: center; /* Centra la imagen */
+    color: white; /* Asegura que el texto sea legible */
+    padding: 100px 0; /* Ajusta el espacio superior e inferior para darle altura al header */
+    height: 650px;
+    background-color: rgba(0, 0, 0, 0.5); /* Superposición semitransparente negra */
+    background-blend-mode: darken; /* Combina el color de fondo con la imagen */
+  }
+  .header-bg h1, 
+.header-bg p {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Añade una sombra oscura al texto */
+}
+
+.cardCaracteristica{
+  background-color: #E4E0E1;
+}
+
+.acercaDe-bg {
+  font-size: 1.25em;
+  background-image: url('../images/acercaDeImg.jpeg'); /* Cambia esta ruta por la de tu imagen */
+  background-size: cover; /* Asegura que la imagen cubra todo el espacio */
+  background-position: center; /* Centra la imagen */
+  color: white; /* Asegura que el texto sea legible */
+  padding: 100px 0; /* Ajusta el espacio superior e inferior para darle altura al header */
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.5); /* Superposición semitransparente negra */
+  background-blend-mode: darken; /* Combina el color de fondo con la imagen */
+}
