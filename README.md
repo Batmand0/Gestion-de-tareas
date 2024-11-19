@@ -1,27 +1,34 @@
-# GestionTareas
+# **Gestión de Tareas**
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+Este proyecto es una aplicación web diseñada para gestionar tareas de manera eficiente y organizada. Cuenta con una interfaz amigable y una página de inicio atractiva que explica claramente cómo funciona el sistema de gestión de tareas.
 
-## Development server
+## **Características principales**
+- **Página de inicio**: Proporciona una descripción clara del proyecto y cómo los usuarios pueden aprovecharlo para organizar sus tareas.
+- **Gestión de tareas**: Una página dedicada donde los usuarios pueden:
+  - **Añadir tareas** con facilidad.
+  - **Editar tareas existentes** para actualizarlas según sea necesario.
+  - **Marcar tareas como completadas** para llevar un seguimiento del progreso.
+  - **Eliminar tareas** que ya no sean relevantes.
+  - **Filtrar tareas** para visualizar solo las más importantes o según su estado (completadas o pendientes).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## **Requisitos previos**
+Antes de ejecutar el proyecto, asegúrate de tener instalado:
+- [Node.js](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli) versión 18.2.11
 
-## Code scaffolding
+## **Servidor de desarrollo**
+Ejecuta el siguiente comando para iniciar el servidor de desarrollo:
+```bash
+ng serve
+```
+Luego, abre tu navegador y navega a:
+```bash
+http://localhost:4200/
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## **Tecnologias utilizadas**
+- **Angular**: Framework principal para el desarrollo frontend y para el almacenamiento en el navegador.
+- **Bootstrap**: Para diseñar una interfaz de usuario atractiva y responsiva.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## **Contribuciones**
+¡Eres bienvenido a contribuir a este proyecto! Si encuentras algún problema o tienes sugerencias para mejorarlo, no dudes en crear un issue o enviar un pull request.
