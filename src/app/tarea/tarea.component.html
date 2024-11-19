@@ -6,19 +6,32 @@
       <div class="col p-3">
         <div class="input-group mb-3">
           <input [(ngModel)]="tituloNuevaTarea" type="text" class="form-control" placeholder="Nueva tarea">
-          <button (click) ="agregarTarea()" class="btn btn-primary">Añadir</button>
+          <button (click)="agregarTarea()" class="btn btn-primary">Añadir</button>
         </div>
-      
+
         <ul class="list-group">
           <li *ngFor="let tarea of obtenerTareasFiltradas()" class="list-group-item d-flex justify-content-between align-items-center">
-            <div>
-              <input type="checkbox" [(ngModel)]="tarea.completada">
+            <!-- Vista de tarea cuando no está en edición -->
+            <div *ngIf="tareaEnEdicion?.id !== tarea.id">
+              <input type="checkbox" [(ngModel)]="tarea.completada" (change)="cambiarEstado(tarea)">
               <span class="mx-3">{{ tarea.titulo }}</span>
+              <button (click)="habilitarEdicion(tarea)" class="btn btn-warning btn-sm">Editar</button>
             </div>
+          
+            <!-- Vista de tarea cuando está en edición -->
+            <div *ngIf="tareaEnEdicion && tareaEnEdicion.id === tarea.id">
+              <input type="text" [(ngModel)]="tareaEnEdicion.titulo" class="form-control d-inline-block w-75">
+              <button (click)="guardarEdicion()" class="btn btn-success btn-sm">Guardar</button>
+              <button (click)="cancelarEdicion()" class="btn btn-secondary btn-sm">Cancelar</button>
+            </div>
+
+            <!-- Botón para eliminar tarea -->
             <button (click)="eliminarTarea(tarea.id)" class="btn btn-danger btn-sm">Eliminar</button>
           </li>
         </ul>
       </div>
+
+      <!-- Filtro de tareas -->
       <div class="mb-3 col-3 p-3">
         <label for="filtro">Filtrar por:</label>
         <select [(ngModel)]="filtro" id="filtro" class="form-select mt-3">
@@ -30,4 +43,3 @@
     </section>
   </section>
 </main>
-  

@@ -10,14 +10,16 @@ import { NavbarComponent } from '../navbar/navbar.component';
   standalone: true,
   templateUrl: './tarea.component.html',
   styleUrls: ['./tarea.component.css'],
-  imports: [CommonModule, FormsModule, NavbarComponent] // Agrega CommonModule aquí
+  imports: [CommonModule, FormsModule, NavbarComponent]
 })
 export class TareaComponent {
   tituloNuevaTarea: string = '';
   filtro: 'todas' | 'completadas' | 'pendientes' = 'todas';
+  tareaEnEdicion: Tarea | null = null; // Esto guarda la tarea en edición
 
   constructor(public tareaService: TareaService) {}
 
+  // Método para agregar tarea
   agregarTarea(): void {
     if (this.tituloNuevaTarea.trim()) {
       this.tareaService.agregarTarea(this.tituloNuevaTarea);
@@ -25,16 +27,17 @@ export class TareaComponent {
     }
   }
 
+  // Método para cambiar el estado de la tarea (completada o pendiente)
   cambiarEstado(tarea: Tarea): void {
-    console.log('Estado de completada antes de cambiar:', tarea.completada);
-    this.tareaService.actualizarTarea(tarea.id, tarea.titulo, !tarea.completada);
-    console.log('Estado de completada después de cambiar:', tarea.completada);
+    this.tareaService.actualizarTarea(tarea.id, tarea.titulo, tarea.completada);
   }
 
+  // Método para eliminar tarea
   eliminarTarea(id: number): void {
     this.tareaService.eliminarTarea(id);
   }
 
+  // Obtener las tareas filtradas por el estado (completadas, pendientes o todas)
   obtenerTareasFiltradas(): Tarea[] {
     if (this.filtro === 'completadas') {
       return this.tareaService.obtenerTareas().filter(t => t.completada);
@@ -43,5 +46,23 @@ export class TareaComponent {
     } else {
       return this.tareaService.obtenerTareas();
     }
+  }
+
+  // Habilitar la edición de una tarea
+  habilitarEdicion(tarea: Tarea): void {
+    this.tareaEnEdicion = { ...tarea }; // Copiar la tarea para poder editarla
+  }
+
+  // Guardar la tarea editada
+  guardarEdicion(): void {
+    if (this.tareaEnEdicion) {
+      this.tareaService.actualizarTarea(this.tareaEnEdicion.id, this.tareaEnEdicion.titulo, this.tareaEnEdicion.completada);
+      this.tareaEnEdicion = null; // Salir del modo edición
+    }
+  }
+
+  // Cancelar la edición
+  cancelarEdicion(): void {
+    this.tareaEnEdicion = null; // Salir del modo edición sin guardar
   }
 }
